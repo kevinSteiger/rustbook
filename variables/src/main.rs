@@ -10,4 +10,16 @@ fn main() {
     }
     println!("The value of x outer scope is: {}", x);
 
+    let quotient = 56.7 / 32.2;
+    println!("{quotient}");
+
+    let tup = (500, 6.4, 1);
+    let (x, y, z) = tup;
+    println!("Here's a tup: {}, {}, {}", x, y, z);
+
+    let five_hundred = tup.0;
+    let six_point_four = tup.1;
+    let one = tup.2;
+    
+
 }
