@@ -1,25 +1,22 @@
-//const THREE_HOURS_IN_SECONDS: u32 = 60 * 60 * 3;
+use std::io;
 
 fn main() {
-    let x = 5;
-    let x = x + 1;
+    let a = [1, 2, 3, 4, 5];
 
-    {
-        let x = x * 2;
-        println!("Value of x inner scope: {}", x);
-    }
-    println!("The value of x outer scope is: {}", x);
+    println!("Please enter an array index.");
 
-    let quotient = 56.7 / 32.2;
-    println!("{quotient}");
+    let mut index = String::new();
 
-    let tup = (500, 6.4, 1);
-    let (x, y, z) = tup;
-    println!("Here's a tup: {}, {}, {}", x, y, z);
+    io::stdin()
+        .read_line(&mut index)
+        .expect("Failed to read line");
 
-    let five_hundred = tup.0;
-    let six_point_four = tup.1;
-    let one = tup.2;
-    
+    let index: usize = index
+        .trim()
+        .parse()
+        .expect("Index entered was not a number");
 
+    let element = a[index];
+
+    println!("The value of the element at index {index} is: {element}");
 }
