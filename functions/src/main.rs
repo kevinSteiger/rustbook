@@ -15,3 +15,5 @@ fn another_function(x: i32, unit_label: char) {
 fn plus_one(x: i32) -> i32{
     x + 1
 }
+
+//comment
