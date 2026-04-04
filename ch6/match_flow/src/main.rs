@@ -30,12 +30,23 @@ fn value_in_cents(coin: Coin) -> u8 {
     }
 }
 
+fn plus_one(x: Option<i32>) -> Option<i32>{
+    match x{
+        None => None,
+        Some(i) => Some(i + 1),
+    }
+}
+
 fn main() {
 
     let c = Coin::Quarter(UsState::Alaska);
-
     let coinValue = value_in_cents(c);
     println!("Coin value: {coinValue}");
+
+
+    let five = Some(5);
+    let six = plus_one(five);
+    let none = plus_one(None);
 
     println!("Hello, world!");
 }
