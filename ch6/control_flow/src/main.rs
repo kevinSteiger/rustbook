@@ -24,17 +24,16 @@ enum Coin{
 
 
 fn describe_state_quarter(coin: Coin) -> Option<String> {
-    if let Coin::Quarter(state) = coin {
-        if state.existed_in(1900) {
+    let Coin::Quarter(state) = coin else {
+        return None;
+    };
+
+    if state.existed_in(1900) {
             Some(format!("{state:?} is pretty old, for America."))
         }
         else{
             Some(format!("{state:?} is relatively new."))
         }
-    }
-    else{
-        None
-    }
 }
 
 fn main() {
@@ -54,5 +53,7 @@ fn main() {
 
 
     let described_coin = describe_state_quarter(coin_three);
-    //println!("{described_coin}");
+    if let Some(description) = described_coin{
+            println!("{description}");
+    }
 }
