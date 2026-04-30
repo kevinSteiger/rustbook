@@ -45,20 +45,29 @@ mod back_of_house{
 
     fn cook_order() {}
 }
-pub fn eat_at_restaurant() {
-
-    let order1 = back_of_house::Appetizer::Soup;
-
-    let mut meal = back_of_house::Breakfast::summer("Rye");
-    meal.toast = String::from("Wheat");
-    println!("I'd like {} toast", meal.toast);
 
 
 
-    crate::front_of_house::hosting::add_to_waitlist();
+mod customer{
+    use crate::front_of_house::hosting;
+    use crate::back_of_house::Appetizer;
+    use crate::back_of_house::Breakfast;
 
-    front_of_house::hosting::add_to_waitlist();
-    
+    pub fn eat_at_restaurant() {
+
+        let order1 = back_of_house::Appetizer::Soup;
+
+        let mut meal = back_of_house::Breakfast::summer("Rye");
+        meal.toast = String::from("Wheat");
+        println!("I'd like {} toast", meal.toast);
+
+
+
+        crate::front_of_house::hosting::add_to_waitlist();
+
+        hosting::add_to_waitlist();
+        
+    }
 }
 
 
