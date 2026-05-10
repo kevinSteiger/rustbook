@@ -47,7 +47,7 @@ mod back_of_house{
 }
 
 
-
+pub use crate::front_of_house::hosting;
 mod customer{
     use crate::front_of_house::hosting;
     use crate::back_of_house::Appetizer;
@@ -55,22 +55,16 @@ mod customer{
 
     pub fn eat_at_restaurant() {
 
-        let order1 = back_of_house::Appetizer::Soup;
+        let order1 = Appetizer::Soup;
 
-        let mut meal = back_of_house::Breakfast::summer("Rye");
+        let mut meal = Breakfast::summer("Rye");
         meal.toast = String::from("Wheat");
         println!("I'd like {} toast", meal.toast);
-
-
-
-        crate::front_of_house::hosting::add_to_waitlist();
 
         hosting::add_to_waitlist();
         
     }
 }
-
-
 
 pub fn add(left: u64, right: u64) -> u64 {
     left + right
@@ -85,4 +79,23 @@ mod tests {
         let result = add(2, 2);
         assert_eq!(result, 4);
     }
+}
+
+
+
+
+use std::collections::HashMap;
+use std::fmt::Result;
+use std::io::Result as IoResult;
+
+fn main() {
+    let mut map = HashMap::new();
+    map.insert(1,2);
+}
+
+fn function1() -> Result {
+    Ok(())
+}
+fn function2() -> IoResult<()> {
+    Ok(())
 }
