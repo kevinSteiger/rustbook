@@ -21,8 +21,13 @@ fn main() {
 
     let s = format!("{s1}-{s2}-{s3}");
 
+    let s1 = String::from("hi");
+    let h = &s1[0..1];
+    println!("{h}");
+
     let hello = "Здравствуйте";
     let answer = &hello[0..4];
+    println!("{answer}");
 
     for c in hello.bytes() {
         println!("{c}");
