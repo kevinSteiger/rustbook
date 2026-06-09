@@ -12,4 +12,24 @@ fn main() {
     for (key, value) in &scores {
         println!("{key}: {value}");
     }
+
+    let field_name = String::from("Favorite Color");
+    let field_value = String::from("Blue");
+
+    let mut map = HashMap::new();
+    map.insert(field_name, field_value);
+
+
+    let mut scores2 = HashMap::new();
+    scores2.insert(String::from("Blue"), 10);
+    scores2.insert(String::from("Blue"), 25);
+    println!("{scores2:?}");
+
+    let mut scores3 = HashMap::new();
+    scores3.insert(String::from("Blue"), 10);
+    scores3.entry(String::from("Yellow")).or_insert(50);
+    scores3.entry(String::from("Blue")).or_insert(50);
+
+    println!("{scores3:?}");
+
 }
