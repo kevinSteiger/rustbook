@@ -13,11 +13,24 @@ fn main() {
 
     let mut elementCounts = HashMap::new();
     for elm in &nums{
-        let count = elementCounts.entry(elm).or_insert(0);
+        let count = elementCounts.entry(*elm).or_insert(0);
         *count += 1;
 
     }
+
+    let mut maxCount = 0;
+    let mut maxCountvalue = 0;
+    
+    for (key, value) in &elementCounts{
+        if *value > maxCount{
+            maxCount = *value;
+            maxCountvalue = *key;
+        }
+    }
+
+
     
     //Iterate through hashmap, save highest value, dont need to sort
     println!("Hashmap: {elementCounts:?}");
+    println!("Mode: {}", maxCountvalue)
 }
