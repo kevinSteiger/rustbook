@@ -95,5 +95,10 @@ fn main() {
     let p = Point {x: 3.0, y: 4.1};
     println!("distance from origin is: {}, starting at point {}, {}", p.distance_from_origin(), p.x, p.y);
 
+    let p1 = Point_2 {x:5, y:10.4};
+    let p2 = Point_2 {x:"Hello", y:'c'};
 
+    let p3 = p1.mixup(p2);
+
+    println!("p3.x = {}, p3.y = {}", p3.x, p3.y);
 }
