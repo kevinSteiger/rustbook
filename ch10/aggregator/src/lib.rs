@@ -1,3 +1,4 @@
+use std::fmt::Display;
 pub trait Summary{
     fn summarize_author(&self) -> String;
 
@@ -41,3 +42,27 @@ impl Summary for SocialPost{
     }
 }
 
+
+
+fn returns_summarizable() -> impl Summary{
+    SocialPost{
+        username: String::from("horse_ebooks"),
+        content: String::from("of course, as you already know, people",),
+        reply: false,
+        repost:false,
+    }
+}
+
+
+
+
+struct Pair<T>{
+    x: T,
+    y: T,
+}
+
+impl<T> Pair<T>{
+    fn new(x: T, y: T) -> Self {
+        Self {x, y}
+    }
+}
