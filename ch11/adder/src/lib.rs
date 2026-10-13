@@ -1,3 +1,20 @@
+pub struct Guess {
+    value: i32,
+}
+
+impl Guess {
+    pub fn new(value: i32) -> Guess {
+        if value < 1 {
+            panic!("Guess value msut be between 1 and 100, got {value}.");
+        }
+
+        Guess {value}
+    }
+}
+pub fn greeting(name: &str) -> String {
+    format!("Hello !")
+}
+
 pub fn add(left: u64, right: u64) -> u64 {
     left + right
 }
@@ -20,6 +37,20 @@ impl Rectangle{
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    #[should_panic]
+    fn greater_than_100(){
+        Guess::new(200);
+    }
+
+    #[test]
+    fn greeting_contains_name() {
+        let result = greeting("Carol");
+        assert!(result.contains("Carol"),
+        "Greeting did not contain name, value was `{result}`"
+        );
+    }
 
     #[test]
     fn it_adds_two(){
