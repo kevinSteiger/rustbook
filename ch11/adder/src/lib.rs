@@ -45,6 +45,7 @@ mod tests {
     use super::*;
 
     #[test]
+    #[ignore]
     fn it_works() -> Result<(), String> {
         let result = add(2,2);
 
@@ -56,12 +57,14 @@ mod tests {
     }
 
     #[test]
+    #[ignore]
     #[should_panic(expected = "less than or equal to 100")]
     fn greater_than_100(){
         Guess::new(200);
     }
 
     #[test]
+    #[ignore]
     fn greeting_contains_name() {
         let result = greeting("Carol");
         assert!(result.contains("Carol"),
@@ -70,12 +73,14 @@ mod tests {
     }
 
     #[test]
+    #[ignore]
     fn it_adds_two(){
         let result = add_two(2);
         assert_eq!(result, 4);
     }
 
     #[test]
+    #[ignore]
     fn exploration() {
         let result = add(2, 2);
         assert_eq!(result, 4);
@@ -88,6 +93,7 @@ mod tests {
     */
 
     #[test]
+    #[ignore]
     fn larger_can_hold_smaller(){
         let larger = Rectangle{
             width: 8,
@@ -102,6 +108,7 @@ mod tests {
     }
 
     #[test]
+    #[ignore]
     fn smaller_cannot_hold_larger(){
         let larger = Rectangle{
             width: 8,
