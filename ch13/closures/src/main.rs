@@ -1,3 +1,6 @@
+use std::time::Duration;
+use std::thread;
+
 #[derive(Debug, PartialEq, Copy, Clone)]
 enum ShirtColor {
     Red,
@@ -19,7 +22,7 @@ impl Inventory {
 
         for color in &self.shirts{
             match color {
-                ShirtColor::Red => num_red += 1
+                ShirtColor::Red => num_red += 1,
                 ShirtColor::Blue => num_blue += 1,
             }
         }
@@ -34,8 +37,19 @@ impl Inventory {
 
 
 fn main() {
+
+    let expensive_closure = |num: u32| -> u32 {
+        println!("calculating slowly...");
+        thread::sleep(Duration::from_secs(2));
+        num
+    };
+
+    println!(
+        "expensive closure test: {}", expensive_closure(5),
+    );
+
     let store = Inventory{
-        shirts: vec![ShirtColor::Blue, ShirtColor::Red, ShirtColor::Blue].
+        shirts: vec![ShirtColor::Blue, ShirtColor::Red, ShirtColor::Blue],
     };
 
     let user_pref1 = Some(ShirtColor::Red);
