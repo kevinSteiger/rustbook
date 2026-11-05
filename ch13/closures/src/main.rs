@@ -64,4 +64,23 @@ fn main() {
         "The user with preference {:?} gets {:?}",
         user_pref2, giveaway2
     );
+
+
+
+    let list = vec![1, 2, 3];
+    println!("\nBefore defining closure: {list:?}");
+
+    let only_borrows = || println!("From closure: {list:?}");
+
+    println!("Before calling closure: {list:?}");
+    only_borrows();
+    println!("After calling closure: {list:?}\n");
+
+
+    let mut list2 = vec![1, 2, 3];
+    println!("Before defining closure: {list2:?}");
+
+    let mut borrows_mutably = || list2.push(7);
+    borrows_mutably();
+    println!("After calling closure: {list2:?}\n");
 }
