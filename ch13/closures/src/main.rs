@@ -66,7 +66,7 @@ fn main() {
     );
 
 
-
+    //Closure captures immutable ref
     let list = vec![1, 2, 3];
     println!("\nBefore defining closure: {list:?}");
 
@@ -77,10 +77,17 @@ fn main() {
     println!("After calling closure: {list:?}\n");
 
 
+    //closure captures mutable ref:
     let mut list2 = vec![1, 2, 3];
     println!("Before defining closure: {list2:?}");
 
     let mut borrows_mutably = || list2.push(7);
     borrows_mutably();
     println!("After calling closure: {list2:?}\n");
+
+
+    //closure takes ownership:
+    let list3 = vec![1, 2, 3];
+    println!("Before defining closure: {list3:?}");
+    thread::spawn(move || println!("From thread: {list3:?}")).join().unwrap();
 }
