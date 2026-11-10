@@ -108,5 +108,22 @@ fn main() {
 
     list.sort_by_key(|r| r.width);
     println!("{list:#?}");
-    
+
+
+    // closure traits FnOnce:
+    let mut list2 = [
+        Rectangle {width: 10, height: 1},
+        Rectangle { width: 3, height: 5 },
+        Rectangle { width: 7, height: 12 },
+    ];
+
+    let mut num_sort_operations = 0;
+    let value = String::from("closure called");
+
+    list2.sort_by_key(|r| {
+        num_sort_operations += 1;
+        r.width
+    });
+    println!("{list2:#?}, sorted in {num_sort_operations} operations");
+
 }
