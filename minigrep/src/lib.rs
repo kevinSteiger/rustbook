@@ -4,7 +4,7 @@ pub fn search<'a>(query: &str, contents: &'a str) -> impl Iterator<Item = &'a st
 
     contents
         .lines()
-        .filter(|line| line.contains(query))
+        .filter(move |line| line.contains(query))
 
 }
 
@@ -13,7 +13,7 @@ pub fn search_case_insensitive<'a>(query: &str, contents: &'a str) -> impl Itera
 
     contents
         .lines()
-        .filter(|line| line.to_lowercase().contains(&query))
+        .filter(move |line| line.to_lowercase().contains(&query))
 
 }
 
